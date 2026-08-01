@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>For You ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+
+    background:linear-gradient(135deg,#ffdde1,#ee9ca7);
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    overflow:hidden;
+
+}
+
+.container{
+
+    width:90%;
+    max-width:420px;
+    text-align:center;
+
+}
+
+.card{
+
+    background:rgba(255,255,255,.15);
+    backdrop-filter:blur(15px);
+    border-radius:25px;
+    padding:40px;
+    color:white;
+    box-shadow:0 20px 50px rgba(0,0,0,.2);
+
+}
+
+h1{
+
+    margin-bottom:15px;
+    font-weight:600;
+
+}
+
+p{
+
+    margin-bottom:30px;
+    opacity:.95;
+
+}
+
+button{
+
+    width:100%;
+    margin-top:15px;
+    padding:15px;
+    border:none;
+    border-radius:50px;
+    font-size:16px;
+    cursor:pointer;
+    transition:.3s;
+    font-weight:600;
+
+}
+
+button:hover{
+
+    transform:translateY(-3px);
+    box-shadow:0 10px 20px rgba(0,0,0,.2);
+
+}
+
+.enter{
+
+    background:white;
+    color:#ff5e8a;
+
+}
+
+.download{
+
+    background:#ff5e8a;
+    color:white;
+
+}
+
+.reminder{
+
+    background:#ffffff22;
+    color:white;
+    border:1px solid rgba(255,255,255,.4);
+
+}
+
+.hidden{
+
+    display:none;
+
+}
+
+#message{
+
+    margin-top:25px;
+    background:rgba(255,255,255,.15);
+    padding:20px;
+    border-radius:15px;
+    line-height:1.7;
+    animation:fade .7s;
+
+}
+
+@keyframes fade{
+
+from{
+
+opacity:0;
+transform:translateY(15px);
+
+}
+
+to{
+
+opacity:1;
+transform:translateY(0);
+
+}
+
+}
+
+.hearts{
+
+position:fixed;
+left:0;
+top:0;
+width:100%;
+height:100%;
+pointer-events:none;
+overflow:hidden;
+
+}
+
+.heart{
+
+position:absolute;
+font-size:20px;
+animation:float 8s linear infinite;
+opacity:.5;
+
+}
+
+@keyframes float{
+
+0%{
+
+transform:translateY(100vh) rotate(0deg);
+
+}
+
+100%{
+
+transform:translateY(-120vh) rotate(360deg);
+
+}
+
+}
+
+</style>
+
+</head>
+<body>
+
+<div class="hearts"></div>
+
+<div class="container">
+
+<div class="card">
+
+<div id="welcome">
+
+<h1>Happy Girlfriend Day Sayang ❤️</h1>
+
+<p>Buka ya hehe</p>
+
+<button class="enter" onclick="enterSite()">
+Open
+</button>
+
+</div>
+
+<div id="main" class="hidden">
+
+<h1>Good Morning Princess ❤️</h1>
+
+<p>Jangan lupa dibuka yaa.</p>
+
+<button class="download" onclick="downloadPhoto()">
+📷 
+</button>
+
+<button class="reminder" onclick="showReminder()">
+💌 
+</button>
+
+<div id="message" class="hidden">
+
+Makasih ya sayang udah hadir dan mewarnai hari hariku dengan tawa, cerita, dan kasih sayang
+Thank you for being my safe place, my happiness, and my favorite person.
+Terima kasih karena tetap memilih bertahan, mencintai, dan percaya pada kita.
+I love you more than words can ever explain.
+Semoga kita bakal terus ngerayain hari ini, tahun depan, dan bertahun tahun setelahnya.
+Jangan lupa buka mail di hato yaa! ❤️
+
+
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<audio id="music" loop>
+
+<source src="Valse.mp3" type="audio/mpeg">
+
+</audio>
+
+<script>
+
+function enterSite(){
+
+document.getElementById("welcome").style.display="none";
+
+document.getElementById("main").classList.remove("hidden");
+
+document.getElementById("music").play();
+
+}
+
+function downloadPhoto(){
+
+const a=document.createElement("a");
+
+a.href="010826v3.png";
+
+a.download="010826v3.png";
+
+a.click();
+
+}
+
+function showReminder(){
+
+document.getElementById("message").classList.remove("hidden");
+
+}
+
+const hearts=document.querySelector(".hearts");
+
+for(let i=0;i<25;i++){
+
+const heart=document.createElement("div");
+
+heart.className="heart";
+
+heart.innerHTML=["❤","💖","💕","💗"][Math.floor(Math.random()*4)];
+
+heart.style.left=Math.random()*100+"%";
+
+heart.style.animationDuration=6+Math.random()*5+"s";
+
+heart.style.animationDelay=Math.random()*5+"s";
+
+heart.style.fontSize=(16+Math.random()*20)+"px";
+
+hearts.appendChild(heart);
+
+}
+
+</script>
+
+</body>
+</html>
